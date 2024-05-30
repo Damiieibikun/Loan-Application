@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Leap - Loan Application Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body id="body">
+    <section class="flex-column center" id="main">
+        <div class="flex space-between">
+            <div class="flex-column align-center">
+                <h1>Welcome Client</h1>
+                <h3>Please enter your details</h3>
+            </div>
+            <img src="images/logo2.png" alt="" />
+        </div>
+
+        <p id="required-msg">The asterix fields are compulsory</p>
+
+        <form action="" id="candidateForm" class="flex-column gap center">
+            <div>
+                <label for="firstName">First Name: </label>
+                <input type="text" name="fname" id="firstName" />
+                <span class="required"> *</span>
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lname" id="lastName" />
+                <span class="required"> *</span>
+            </div>
+            <div>
+                <p id="invalid-num">Invalid number format</p>
+                <label for="balance">Current Balance:</label>
+                <input type="text" name="" id="balance" />
+                <span class="required"> *</span>
+            </div>
+            <div>
+                <label for="history"> Credit History: </label>
+                <select name="history" id="history">
+                    <option value="0">New account</option>
+            <option value="1">1 Month</option>
+            <option value="2">2 Months</option>
+            <option value="3">3 Months</option>
+            <option value="4">4 Months</option>
+            <option value="5">5 Months</option>
+            <option value="6">6 Months</option>
+            <option value="7">7 Months</option>
+            <option value="8">8 Months</option>
+            <option value="9">9 Months</option>
+            <option value="10">10 Months</option>
+            <option value="11">11 Months</option>
+            <option value="12">12 Months</option>
+            <option value="13">Over 1 year</option>
+           
+          </select>
+                <span class="required"> *</span>
+            </div>
+
+            <div>
+                <label for="last-deposit"> Last deposit date: </label>
+                <input type="date" name="date" id="last-deposit" />
+                <span class="required"> *</span>
+            </div>
+            <div>
+                <label for="last-loan"> Date of last approved Loan: </label>
+                <input type="date" name="date" id="last-loan" />
+                <span class="required"> *</span>
+            </div>
+            <div>
+                <label for="loanRequest"> Date for current loan request: </label>
+                <input type="date" name="date" id="loanRequest" />
+                <span class="required"> *</span>
+            </div>
+            <div>
+                <label for="loanRepayment"> Loan repayment date: </label>
+                <input type="date" name="date" id="loanRepayment" />
+                <span class="required"> *</span>
+            </div>
+
+            <div>
+                <label for="account"> Select Account Type: </label>
+                <select name="account" id="account">
+            <option value="Current">Current</option>
+            <option value="Savings">Savings</option>
+           
+          </select>
+                <span class="required"> *</span>
+            </div>
+
+            <div>
+                <p id="invalid-email">Invalid email format</p>
+                <label for="email">Please Enter Your Email:</label>
+                <input type="text" name="email" id="email" />
+                <span class="required"> *</span>
+            </div>
+
+            <div>
+                <p id="invalid-loan">Invalid number format</p>
+                <label for="loan-amt">Please Enter Loan amount:</label>
+                <input type="text" name="loan-amt" id="loan-amt" />
+                <span class="required"> *</span>
+            </div>
+
+            <button id="submit" type="button">Submit Application</button>
+        </form>
+    </section>
+    <script src="js/application.js"></script>
+</body>
+
+</html>

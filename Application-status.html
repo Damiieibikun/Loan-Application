@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <img src="images/logo2.png" alt="" id="logo-img">
+        <div id="notification">
+            <p id="currentdate"></p>
+            <img src="images/envelope.png" alt="" id="notification-icon">
+            <div id="notification-num" onclick="showMsg()">1</div>
+            <div id="message"><span id="dot">. </span>New Message: Application Status</div>
+        </div>
+        
+    </nav>
+    <div id="app-letter">
+        <h1>Application Status</h1>
+        <div id="intro-letter"></div>
+        <ul id="criteria"></ul>
+        <div id="closing-letter"></div>
+    </div>
+    
+<script>
+    //Navigation
+    const today = new Date().toDateString()
+    document.getElementById('currentdate').innerText = today
+    let count = 0
+    function showMsg(){
+        count%2===0?
+        document.getElementById('message').style.display = 'block':
+        document.getElementById('message').style.display = 'none'
+        count++       
+    }
+
+    //Loan application
+    //Retrieve data from local storage
+    let applicantDetails = JSON.parse(localStorage.getItem('Loan-Application'))
+    
+let introLetter_rej = `<h2>Update on your Loan application from Quantum Leap</h2>
+
+<h3>Dear ,</h3>
+
+<p>Thank you for your interest in a loan from Quantum Leap. We carefully reviewed your application for a loan in the amount of [Loan Amount].
+
+<br>
+We are unable to approve your loan application at this time.
+
+<br>
+After a thorough review of your application, we were unable to meet your request based on the following criteria: </p>`
+
+
+let closingLetter_rej = `
+<br><br>
+<p>We understand that this news may be disappointing. We encourage you to contact a loan officer at (+123)-456-789 or customercare@quantumleap.com to discuss your application further. 
+    We may be able to offer suggestions for improving your creditworthiness.</p>
+Sincerely,
+<br><br>
+<p>
+Damilola Ibikunle
+<br>
+Senior Loan Officer
+<br><br>
+<i>Quantum Leap
+<br>
+123 Somewhere, Someplace.</i></p>`;
+
+if (applicantDetails.FinalPoints < 30){
+
+    document.getElementById('intro-letter').innerHTML = introLetter_rej
+    document.getElementById('closing-letter').innerHTML = closingLetter_rej
+}
+
+else{
+    document.write('passed')
+}
+
+</script>
+</body>
+
+</html>
