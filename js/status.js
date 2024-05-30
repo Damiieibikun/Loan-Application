@@ -1,6 +1,6 @@
 
 //Navigation
-const today = new Date().toDateString();
+let today = new Date().toDateString();
 document.getElementById("currentdate").innerText = today;
 
 function showMsg() {
