@@ -55,11 +55,12 @@ function submitApplication() {
         if (parseInt(balance.value) > parseInt(loan.value)) {
 
             pointsAwarded += 10
+            applicantInfo.LoanRequested = loan.value
         } else {
 
-
             pointsAwarded -= 10
-            applicantInfo.balance = 'Insufficient Balance'
+            applicantInfo.Balance = 'Insufficient Balance'
+            applicantInfo.LoanRequested = loan.value
         }
 
         if (parseInt(history.value) >= 6) {
@@ -68,7 +69,7 @@ function submitApplication() {
         } else {
 
             pointsAwarded = pointsAwarded
-            applicantInfo.credit = 'Inconsistent Credit History for 6 Months'
+            applicantInfo.Credit = 'Inconsistent Credit History for 6 Months'
         }
 
         let lastDepositDate = lastDeposit.value
@@ -88,7 +89,7 @@ function submitApplication() {
             pointsAwarded += 10
         } else {
             pointsAwarded = pointsAwarded
-            applicantInfo.LastLoan = `Your last approved loan was on ${new Date(lastLoanDate).toDateString()} falls within 6 Months`
+            applicantInfo.LastLoan = `Your last approved loan was on ${new Date(lastLoanDate).toDateString()} which falls within 6 Months`
         }
 
         let loanRequestDate = loanRequest.value
@@ -114,7 +115,7 @@ function submitApplication() {
         }
 
         applicantInfo.FinalPoints = pointsAwarded
-        console.log(applicantInfo)
+        // console.log(applicantInfo)
 
         //write to local storage all inputted data
         localStorage.setItem('Loan-Application', JSON.stringify(applicantInfo))
