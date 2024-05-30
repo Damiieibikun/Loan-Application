@@ -115,14 +115,13 @@ function submitApplication() {
         }
 
         applicantInfo.FinalPoints = pointsAwarded
-        // console.log(applicantInfo)
+        
 
         //write to local storage all inputted data
         localStorage.setItem('Loan-Application', JSON.stringify(applicantInfo))
             //redirect to page
-        // window.location.href = 'Application-status.html'
-            //on home page retrieve data from local storage
-            //depending on the score and inpuuted values, render relevant text in innerhtml
+        window.location.href = 'Application-status.html'
+           
 
         console.log('All input fields are validated')
     } else {
