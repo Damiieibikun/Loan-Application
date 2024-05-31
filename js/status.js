@@ -128,5 +128,5 @@ function showLetter(){
   document.getElementById('app-letter').style.display = 'block'
   document.getElementById('dot').style.color = 'black'
   document.getElementById('message').style.display = 'none'
-  document.getElementById('hero-img').style.display = 'none'
+  document.getElementById('herostatus-img').style.display = 'none'
 }

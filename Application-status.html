@@ -10,8 +10,17 @@
   <body id="main-status">
     <nav>
       <a href="Loan-Application.html"><img src="images/logo2.png" alt="" id="logo-img" /></a>
+      <div id="links">
+        <ul class="flex">
+          <a href="index.html"><li>Home</li></a>
+          <a href="Application-status.html"><li>Check Application Status</li></a>
+          <a href="Loan-Application.html"><li>Apply for Loan</li></a>
+          <a href="#"><li>Learn More</li></a>
+        </ul>
+      </div>
       <div id="notification">
         <p id="currentdate"></p>
+        <img src="images/hamburger.png" alt="" id="collasped-menu">
         <img src="images/envelope.png" alt="" id="notification-icon" />
         <div id="notification-num" onclick="showMsg()">1</div>
         <div id="message" onclick="showLetter()">
@@ -20,7 +29,7 @@
       </div>
     </nav>
     <div id="herostatus-img">
-            <p>QuantumLeap Loans Fast and Easy!</p>        
+            <!-- <p>QuantumLeap Loans Fast and Easy!</p>         -->
     </div>
     <div id="app-letter">
         <span><b>mail from Quantum Leap</b></span>&nbsp;<span class="email-font">&lt;noreply@quantumleap.com&gt;</span>
