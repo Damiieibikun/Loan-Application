@@ -1,57 +1,55 @@
-
 //Navigation
-let today = new Date().toDateString();
-document.getElementById("currentdate").innerText = today;
+// let today = new Date().toDateString();
+// document.getElementById("currentdate").innerText = today;
 
 // retrieve elements from document
 let message = document.getElementById("message")
 let notification_icon = document.getElementById("notification-num")
-//Retrieve data from local storage
+    //Retrieve data from local storage
 let applicantDetails = JSON.parse(
-  localStorage.getItem("Loan-Application")
+    localStorage.getItem("Loan-Application")
 );
 
 
 //display notification message
 function showMsg(event) {
-  if(event.target!==notification_icon){
-    message.classList.remove('display-msg')
-    message.classList.add('hide-msg')
-  }
-  else{
-    message.classList.toggle('display-msg')
-    message.classList.toggle('hide-msg')
-  }
-  
+    if (event.target !== notification_icon) {
+        message.classList.remove('display-msg')
+        message.classList.add('hide-msg')
+    } else {
+        message.classList.toggle('display-msg')
+        message.classList.toggle('hide-msg')
+    }
+
 }
 
 
 let hamMenu = document.getElementById('collasped-menu')
 
 // Display colapsed menu
-function showNav(event){
-  if(event.target===hamMenu){
-    document.getElementById('links').classList.toggle('toggle-a')
-    document.getElementById('links').firstElementChild.classList.toggle('flex')
-    document.getElementById('links').firstElementChild.classList.toggle('toggle-list')
-    document.getElementById('links').classList.toggle('links')
-  }
-  else{
-    document.getElementById('links').firstElementChild.classList.add('flex')
-    document.getElementById('links').classList.add('links')
-    document.getElementById('links').classList.remove('toggle-a')
-    document.getElementById('links').firstElementChild.classList.remove('toggle-list')
-  }
+function showNav(event) {
+    if (event.target === hamMenu) {
+        document.getElementById('links').classList.toggle('toggle-a')
+        document.getElementById('links').firstElementChild.classList.toggle('flex')
+        document.getElementById('links').firstElementChild.classList.toggle('toggle-list')
+        document.getElementById('links').classList.toggle('links')
+    } else {
+        document.getElementById('links').firstElementChild.classList.add('flex')
+        document.getElementById('links').classList.add('links')
+        document.getElementById('links').classList.remove('toggle-a')
+        document.getElementById('links').firstElementChild.classList.remove('toggle-list')
+    }
 }
 
 
 
 //display application status
-function showLetter(){
-  document.getElementById('app-letter').style.display = 'block'
-  document.getElementById('dot').style.color = 'black'
-  document.getElementById('learn-more').style.display = 'none'
-  document.getElementById('hero-img').style.display = 'none'
+function showLetter() {
+    document.getElementById('app-letter').style.display = 'block'
+    document.getElementById('dot').style.color = 'black'
+    document.getElementById('learn-more').style.display = 'none'
+    document.getElementById('hero-img').style.display = 'none'
+    document.getElementById('choose-us').style.display = 'none'
 }
 
 //add event listener to document 
@@ -135,40 +133,38 @@ Senior Loan Officer
 
 //
 
-if (applicantDetails.FinalPoints < 30) {//display rejection letter
-  //display critera
-  for (var i in applicantDetails) {
-    if (
-      i !== "FirstName" &&
-      i !== "LastName" &&
-      i !== "Email" &&
-      i !== "DateRequested" &&
-      i !== "DateRepayed" &&
-      i !== "FinalPoints" &&
-      i !== "LoanRequested"
-    ) {
-      var li = document.createElement("li");
-      li.innerHTML = `${i}: ${applicantDetails[i]}`;
-      document.getElementById("criteria").append(li);
+if (applicantDetails.FinalPoints < 30) { //display rejection letter
+    //display critera
+    for (var i in applicantDetails) {
+        if (
+            i !== "FirstName" &&
+            i !== "LastName" &&
+            i !== "Email" &&
+            i !== "DateRequested" &&
+            i !== "DateRepayed" &&
+            i !== "FinalPoints" &&
+            i !== "LoanRequested"
+        ) {
+            var li = document.createElement("li");
+            li.innerHTML = `${i}: ${applicantDetails[i]}`;
+            document.getElementById("criteria").append(li);
+        }
     }
-  }
 
-  document.getElementById("intro-letter").innerHTML = introLetter_rej;
-  document.getElementById("closing-letter").innerHTML = closingLetter_rej;
-} else {//display approved letter
-  let li = document.createElement("li");
-  li.innerText = `Request Date: ${applicantDetails.DateRequested}`;        
-  let li2 = document.createElement("li");
-  li2.innerText = `Repayment Date: ${applicantDetails.DateRepayed}`; 
-  let li3 = document.createElement("li");
-  li3.innerText = '2% per Month';
-  document.getElementById("criteria").append(li);
-  document.getElementById("criteria").append(li2);
-  document.getElementById("criteria").append(li3);
+    document.getElementById("intro-letter").innerHTML = introLetter_rej;
+    document.getElementById("closing-letter").innerHTML = closingLetter_rej;
+} else { //display approved letter
+    let li = document.createElement("li");
+    li.innerText = `Request Date: ${applicantDetails.DateRequested}`;
+    let li2 = document.createElement("li");
+    li2.innerText = `Repayment Date: ${applicantDetails.DateRepayed}`;
+    let li3 = document.createElement("li");
+    li3.innerText = '2% Interest Rate per Month';
+    document.getElementById("criteria").append(li);
+    document.getElementById("criteria").append(li2);
+    document.getElementById("criteria").append(li3);
 
 
-  document.getElementById("intro-letter").innerHTML = introLetter_aprov;
-  document.getElementById("closing-letter").innerHTML = closingLetter_approv;
+    document.getElementById("intro-letter").innerHTML = introLetter_aprov;
+    document.getElementById("closing-letter").innerHTML = closingLetter_approv;
 }
-
-

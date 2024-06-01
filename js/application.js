@@ -106,7 +106,7 @@ function submitApplication() {
             pointsAwarded = pointsAwarded
             applicantInfo.Repayment = 'Long duration for loan repayment'
             applicantInfo.DateRequested = new Date(loanRequestDate).toDateString()
-           
+
         }
         let accountType = account.value
         if (accountType === 'Current') {
@@ -117,13 +117,13 @@ function submitApplication() {
         }
 
         applicantInfo.FinalPoints = pointsAwarded
-        
+
 
         //write to local storage all inputted data
         localStorage.setItem('Loan-Application', JSON.stringify(applicantInfo))
             //redirect to page
         window.location.href = 'Application-status.html'
-           
+
 
         console.log('All input fields are validated')
     } else {
@@ -138,14 +138,18 @@ function checkFields() {
     let validBalance = false
     let validEmail = false
     let validLoan = false
+    let selectedDuartion = false
     let inputs = document.getElementsByTagName('input')
+    let selectDuration = document.getElementsByTagName('select')[0]
     for (var input of inputs) {
+
         if (input.value === '') {
             document.getElementById("required-msg").style.display = "block";
             input.nextElementSibling.style.display = 'inline'
+            input.classList.add('empty-field')
             numEmptyFields++
         } else {
-            // document.getElementById("required-msg").style.display = "none";
+            input.classList.remove('empty-field')
             input.nextElementSibling.style.display = 'none'
             if (input.id === 'balance') {
                 const numRegex = /^\s*(\d+(\.\d+)?)(\s*,\s*(\d+(\.\d+)?))*\s*$/;
@@ -164,11 +168,22 @@ function checkFields() {
 
         }
     }
+
+    if (selectDuration.value === '') {
+        selectDuration.nextElementSibling.style.display = 'inline'
+        selectDuration.classList.add('empty-field')
+
+    } else {
+        selectDuration.classList.remove('empty-field')
+        selectDuration.nextElementSibling.style.display = 'none'
+        selectedDuartion = true
+    }
     console.log('balance validated?: ' + validBalance)
     console.log('email validated?: ' + validEmail)
     console.log('loan amount validated?: ' + validLoan)
+    console.log('Credit duartion validated?: ' + selectedDuartion)
 
-    passedChecks = validBalance && validEmail && validLoan
+    passedChecks = validBalance && validEmail && validLoan && selectedDuartion
 
     console.log('number of empty fields: ' + numEmptyFields)
     console.log('passed all checks: ' + passedChecks)
@@ -196,4 +211,3 @@ function calculatePeriod(fromDate, toDate) {
 
 //add eventlistener to submit button
 submit.addEventListener('click', submitApplication)
-

@@ -1,65 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quantum Leap-Application Status</title>
     <link rel="stylesheet" href="css/style.css" />
-  </head>
+</head>
 
-  <body id="main-status">
+<body id="main-status">
     <!-- navigation -->
     <nav>
-      <a href="index.html"><img src="images/logo2.png" alt="" id="logo-img" /></a>
-      <div id="links" class="links">
-        <ul class="flex">
-          <a href="index.html"><li>Apply for Loan</li></a>
-          <a href="Application-status.html"><li>Check Application Status</li></a>
-          <a href="#learn-more"><li>Learn More</li></a>
-        </ul>
-      </div>
-      <div id="notification">
-        <p id="currentdate"></p>
-        <img src="images/hamburger.png" alt="" id="collasped-menu">
-        <img src="images/envelope.png" alt="" id="notification-icon" />
-        <div id="notification-num">1</div>
-        <div id="message" class = "hide-msg"onclick="showLetter()">
-          <span id="dot">. </span>New Message: Application Status
+        <a href="index.html"><img src="images/logo2.png" alt="" id="logo-img" /></a>
+        <div id="links" class="links">
+            <ul class="flex">
+                <a href="index.html">
+                    <li>Apply for Loan</li>
+                </a>
+                <a href="Application-status.html">
+                    <li>Check Application Status</li>
+                </a>
+                <a href="#learn-more">
+                    <li>Learn More</li>
+                </a>
+            </ul>
         </div>
-      </div>
+        <div id="notification">
+            <p id="currentdate">Notifications</p>
+            <img src="images/hamburger.png" alt="" id="collasped-menu">
+            <img src="images/envelope.png" alt="" id="notification-icon" />
+            <div id="notification-num">1</div>
+            <div id="message" class="hide-msg" onclick="showLetter()">
+                <span id="dot">. </span>New Message: Application Status
+            </div>
+        </div>
     </nav>
     <!-- hero section -->
     <div id="hero-img">
-      <div id="overlay">
-        <p id="name"></p>
-          <p id="overlay-txt">Thank you for choosing <br>
-            QuantumLeap Loans.</p>
-          <div class = "flex center align-center">
-            <button id="apply" onclick="showLetter()">View your Status</button>
-          </div>
-      </div>
-  </div>
+        <div id="overlay">
+            <p id="name"></p>
+            <p id="overlay-txt">Thank you for choosing <br> QuantumLeap Loans.</p>
+            <div class="flex center align-center">
+                <button id="apply" onclick="showLetter()">View your Status</button>
+            </div>
+        </div>
+    </div>
 
 
-<div id="learn-more">
-  <h1>learn-more</h1>
 
-</div>
+    <div id="learn-more" class="flex-column center align-center">
+        <h2>Loans for Every Need</h2>
+        <hr>
+        <div class="learnmore-grid center align-center">
+            <div>
+                <img src="images/home-icon.png" alt="">
+
+                <h3>Buying a Home?</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, mollitia!</p>
+            </div>
+            <div>
+                <img src="images/car.png" alt="">
+
+                <h3>Need a Car?</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, mollitia!</p>
+            </div>
+            <div>
+                <img src="images/investment.png" alt="">
+
+                <h3>Starting a Business?</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, mollitia!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="choose-us">
+        <div id="chooseus-img">
+            <div id="rates" class="flex center align-center">
+                <p>As Low As <br><span id="rate-bg">0.5% Interest Rate</span></p>
+            </div>
+        </div>
+        <div id="chooseus-txt" class="flex-column center align-center">
+            <h3>Why choose us?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, neque ipsum sit perferendis nihil voluptates autem deleniti a doloremque ipsam dolor ipsa repellendus voluptatum vitae minus. Vero dignissimos ad beatae.</p>
+        </div>
+    </div>
 
     <div id="app-letter">
-      <!-- application status -->
+        <!-- application status -->
         <span><b>mail from Quantum Leap</b></span>&nbsp;<span class="email-font">&lt;noreply@quantumleap.com&gt;</span>
         <br>
         <span class="email-font">to</span>&nbsp;<span id="applicantEmail" class="email-font"></span>
-            
+
         <h1>Application Status</h1>
-      <div id="intro-letter"></div>
-      <ul>
-        <b id="criteria"></b></b>
-      </ul>
-      <div id="closing-letter"></div>
+        <div id="intro-letter"></div>
+        <ul>
+            <b id="criteria"></b></b>
+        </ul>
+        <div id="closing-letter"></div>
     </div>
 
-   <script src="js/status.js"></script>
-  </body>
+    <footer></footer>
+
+    <script src="js/status.js"></script>
+</body>
+
 </html>
