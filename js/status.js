@@ -1,7 +1,3 @@
-//Navigation
-// let today = new Date().toDateString();
-// document.getElementById("currentdate").innerText = today;
-
 // retrieve elements from document
 let message = document.getElementById("message")
 let notification_icon = document.getElementById("notification-num")
@@ -47,9 +43,7 @@ function showNav(event) {
 function showLetter() {
     document.getElementById('app-letter').style.display = 'block'
     document.getElementById('dot').style.color = 'black'
-    document.getElementById('learn-more').style.display = 'none'
-    document.getElementById('hero-img').style.display = 'none'
-    document.getElementById('choose-us').style.display = 'none'
+
 }
 
 //add event listener to document 
@@ -58,7 +52,7 @@ document.addEventListener('click', showNav)
 
 
 //applicant's name and email
-document.getElementById('name').innerText = `${applicantDetails.FirstName},`
+// document.getElementById('name').innerText = `${applicantDetails.FirstName},`
 document.getElementById('applicantEmail').innerText = applicantDetails.Email
 
 

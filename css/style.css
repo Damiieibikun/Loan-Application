@@ -5,10 +5,6 @@
     /* index styles */
     
     #body {
-        background-image: url('../images/hero4.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
         position: relative;
     }
     
@@ -126,7 +122,6 @@
     
     .nonempty-field {
         border-color: rgba(0, 0, 0, 0.221);
-        ;
     }
     
     .required,
@@ -171,14 +166,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        /* padding: 10px; */
         padding-right: 100px;
-        position: fixed;
-        /* margin-bottom: 100px; */
-        top: 0;
-        width: 100%;
-        z-index: 1;
-        background-color: white;
     }
     
     .links ul {
@@ -332,70 +320,6 @@
     #collasped-menu:hover {
         cursor: pointer;
     }
-    /* hero section */
-    
-    #hero-img {
-        height: 100vh;
-        background-image: url('../images/Design.png');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        width: 100%;
-        position: relative;
-        display: grid;
-        grid-template-columns: 1fr;
-        margin-top: 100px;
-    }
-    
-    #herostatus-img {
-        height: 100vh;
-        background-image: url('../images/hero5.png');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        width: 100%;
-        position: relative;
-    }
-    
-    #overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.215);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: start;
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    
-    #overlay-txt {
-        color: white;
-        font-size: 40px;
-        font-weight: 700;
-        margin-left: 20px;
-    }
-    
-    #overlay button {
-        background-color: transparent;
-        font-size: 20px;
-        border: 1px solid white;
-        margin-top: 30px;
-        font-weight: 700;
-        margin-left: 20px;
-        padding: 30px 40px;
-    }
-    
-    #overlay button:hover {
-        background-color: white;
-        color: firebrick;
-    }
-    
-    #overlay a {
-        margin-top: 20px;
-        text-decoration: none;
-    }
     /* application letter */
     
     .email-font {
@@ -410,99 +334,7 @@
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         background-color: white;
-        display: none;
-        margin-top: 130px;
-    }
-    
-    #name {
-        margin-top: 40px;
-        font-size: 55px;
-        color: white;
-        font-weight: 700;
-        margin-left: 20px;
-    }
-    /* Learn more */
-    
-    #learn-more h2 {
-        color: black;
-        font-size: 30px;
-        font-weight: 400;
-    }
-    
-    #learn-more hr {
-        width: 15%;
-        height: 5px;
-        background-color: #C3092A;
-        border: none;
-        border-radius: 20px;
-    }
-    
-    .learnmore-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        width: 80%;
-        margin: auto;
-    }
-    
-    .learnmore-grid img {
-        width: 50%;
-    }
-    
-    .learnmore-grid h3,
-    .learnmore-grid img {
-        align-self: center;
-    }
-    
-    .learnmore-grid div {
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .learnmore-grid-title {
-        font-weight: bold;
-    }
-    
-    #choose-us {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        background-color: #8e041d0b;
-        margin-top: 40px;
-    }
-    
-    #chooseus-txt {
-        padding: 40px;
-        height: 400px;
-        padding-top: 60px;
-    }
-    
-    #chooseus-img {
-        background-image: url('../images/approve2.png');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        position: relative;
-        height: 400px;
-    }
-    
-    #rates {
-        position: absolute;
-        height: 50%;
-        width: 50%;
-        background-color: #C3092A;
-        bottom: -50px;
-        right: -90px;
-        text-align: center;
-        border-radius: 10px;
-    }
-    
-    #rates p {
-        color: white;
-        font-weight: 700;
-    }
-    
-    #rate-bg {
-        font-size: 30px;
+        display: block;
     }
     /* media queries */
     
