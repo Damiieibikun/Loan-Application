@@ -2,10 +2,26 @@
 //Navigation
 let today = new Date().toDateString();
 document.getElementById("currentdate").innerText = today;
-
-function showMsg() {
+let count = 0
+let message = document.getElementById("message")
+let notification_icon = document.getElementById("notification-num")
+function showMsg(event) {
+  if(event.target!==notification_icon){
+    console.log('clicked outside')
+    message.style.display = "none"
+  }
+  else{
+    if(count%2==0){
  
-  document.getElementById("message").style.display = "block"
+      message.style.display = "block"
+     }
+     else{
+      message.style.display = "none"
+     }
+  }
+ 
+ count++
+ 
 }
 
 //Loan application
@@ -134,11 +150,32 @@ function showLetter(){
 }
 
 
-function showNav(){
-  document.getElementById('links').classList.toggle('toggle-a')
-document.getElementById('links').firstElementChild.classList.toggle('flex')
-document.getElementById('links').firstElementChild.classList.toggle('toggle-list')
-document.getElementById('links').classList.toggle('links')
+
+
+
+
+
+let hamMenu = document.getElementById('collasped-menu')
+
+
+function showNav(event){
+  if(event.target===hamMenu){
+    document.getElementById('links').classList.toggle('toggle-a')
+    document.getElementById('links').firstElementChild.classList.toggle('flex')
+    document.getElementById('links').firstElementChild.classList.toggle('toggle-list')
+    document.getElementById('links').classList.toggle('links')
+  }
+  else{
+    document.getElementById('links').firstElementChild.classList.add('flex')
+    document.getElementById('links').classList.add('links')
+    document.getElementById('links').classList.remove('toggle-a')
+    document.getElementById('links').firstElementChild.classList.remove('toggle-list')
+  }
+  
+  
 }
 
-document.getElementById('collasped-menu').addEventListener('click', showNav)
+// document.getElementById('collasped-menu').addEventListener('click', showNav)
+
+document.addEventListener('click', showMsg)
+document.addEventListener('click', showNav)
