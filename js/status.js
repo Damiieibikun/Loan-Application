@@ -2,9 +2,17 @@
 //Navigation
 let today = new Date().toDateString();
 document.getElementById("currentdate").innerText = today;
-// let count = 0
+
+// retrieve elements from document
 let message = document.getElementById("message")
 let notification_icon = document.getElementById("notification-num")
+//Retrieve data from local storage
+let applicantDetails = JSON.parse(
+  localStorage.getItem("Loan-Application")
+);
+
+
+//display notification message
 function showMsg(event) {
   if(event.target!==notification_icon){
     message.classList.remove('display-msg')
@@ -13,31 +21,50 @@ function showMsg(event) {
   else{
     message.classList.toggle('display-msg')
     message.classList.toggle('hide-msg')
-    // if(count%2==0){
- 
-    //   message.style.display = "block"
-    //  }
-    //  else{
-    //   message.style.display = "none"
-    //  }
   }
- 
-//  count++
- 
+  
 }
 
-//Loan application
-//Retrieve data from local storage
-let applicantDetails = JSON.parse(
-  localStorage.getItem("Loan-Application")
-);
+
+let hamMenu = document.getElementById('collasped-menu')
+
+// Display colapsed menu
+function showNav(event){
+  if(event.target===hamMenu){
+    document.getElementById('links').classList.toggle('toggle-a')
+    document.getElementById('links').firstElementChild.classList.toggle('flex')
+    document.getElementById('links').firstElementChild.classList.toggle('toggle-list')
+    document.getElementById('links').classList.toggle('links')
+  }
+  else{
+    document.getElementById('links').firstElementChild.classList.add('flex')
+    document.getElementById('links').classList.add('links')
+    document.getElementById('links').classList.remove('toggle-a')
+    document.getElementById('links').firstElementChild.classList.remove('toggle-list')
+  }
+}
 
 
-//applicant's name
+
+//display application status
+function showLetter(){
+  document.getElementById('app-letter').style.display = 'block'
+  document.getElementById('dot').style.color = 'black'
+  document.getElementById('learn-more').style.display = 'none'
+  document.getElementById('hero-img').style.display = 'none'
+}
+
+//add event listener to document 
+document.addEventListener('click', showMsg)
+document.addEventListener('click', showNav)
+
+
+//applicant's name and email
 document.getElementById('name').innerText = `${applicantDetails.FirstName},`
+document.getElementById('applicantEmail').innerText = applicantDetails.Email
+
 
 //approved letter template
-document.getElementById('applicantEmail').innerText = applicantDetails.Email
 let introLetter_aprov = `<h2>Loan Approval from Quantum Leap</h2>
 
 <h3>Dear ${applicantDetails.FirstName},</h3>
@@ -106,9 +133,9 @@ Senior Loan Officer
 <br>
 123 Somewhere, Someplace.</i></p>`;
 
-///////////////////////////////////////////////////////
+//
 
-if (applicantDetails.FinalPoints < 30) {
+if (applicantDetails.FinalPoints < 30) {//display rejection letter
   //display critera
   for (var i in applicantDetails) {
     if (
@@ -144,40 +171,4 @@ if (applicantDetails.FinalPoints < 30) {
   document.getElementById("closing-letter").innerHTML = closingLetter_approv;
 }
 
-function showLetter(){
-  document.getElementById('app-letter').style.display = 'block'
-  document.getElementById('dot').style.color = 'black'
-  // document.getElementById('message').style.display = 'none'
-  document.getElementById('hero-img').style.display = 'none'
-}
 
-
-
-
-
-
-
-let hamMenu = document.getElementById('collasped-menu')
-
-
-function showNav(event){
-  if(event.target===hamMenu){
-    document.getElementById('links').classList.toggle('toggle-a')
-    document.getElementById('links').firstElementChild.classList.toggle('flex')
-    document.getElementById('links').firstElementChild.classList.toggle('toggle-list')
-    document.getElementById('links').classList.toggle('links')
-  }
-  else{
-    document.getElementById('links').firstElementChild.classList.add('flex')
-    document.getElementById('links').classList.add('links')
-    document.getElementById('links').classList.remove('toggle-a')
-    document.getElementById('links').firstElementChild.classList.remove('toggle-list')
-  }
-  
-  
-}
-
-// document.getElementById('collasped-menu').addEventListener('click', showNav)
-
-document.addEventListener('click', showMsg)
-document.addEventListener('click', showNav)

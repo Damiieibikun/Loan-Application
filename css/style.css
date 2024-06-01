@@ -1,44 +1,10 @@
 body{
-    /* background-color: rgba(228, 228, 229, 0.201); */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* background-color: #BA8F8D; */
     box-sizing: border-box;
 }
 
+
 /* index styles */
-#overlay button{
-    background-color: transparent;
-    font-size: 20px;
-    border: 1px solid white;
-    /* margin-left: 100px; */
-    margin-top: 30px;
-    font-weight: 700;
-    margin-left: 20px;
-    padding: 30px 40px;
-    
-}
-
-#overlay button:hover{
-    background-color: white;
-    color: firebrick;
-   
-}
-
-#overlay a{
-    margin-top: 20px;
-    text-decoration: none;
-}
-
-#main-index{
-    overflow: hidden;
-}
-
-/* #main-status{
-
-} */
-
-
-/* loan portal */
 #body {   
    
     background-image: url('../images/hero4.png');
@@ -85,10 +51,7 @@ body{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
-#Ctest,
-#Atest {
-    width: 50px;
-}
+
 
 img {
     width: 70%;
@@ -161,6 +124,7 @@ label {
     font-size: 12px;
     text-align: center;
     display: none;
+    font-weight: 700;
 }
 
 #required-msg,
@@ -187,7 +151,9 @@ label {
     left: 100px;
 }
 
-/* homepage styles */
+/* Application status styles */
+
+/* navigation styles */
 nav{
     display: flex;
     align-items: center;
@@ -210,16 +176,12 @@ nav{
     -moz-transition: .3s ease-in-out;
     -ms-transition: .3s ease-in-out;
     -o-transition: .3s ease-in-out;
-    /* text-decoration-color: #C3092A;
-    -moz-text-decoration-color: #C3092A; */
-   /* background-color: #990721; */
    background-color: #693443;
 }
 
 .links ul li{
     list-style: none;
     font-size: 16px;
-    /* font-weight: 500; */
 }
 
 .links ul a:hover{
@@ -301,75 +263,7 @@ color: white;
     cursor: pointer;
 }
 
-#hero-img{
-    height: 100vh;
-    background-image: url('../images/Design.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    position: relative;
-   display: grid;
-   grid-template-columns: 1fr;
-}
-
-#herostatus-img{
-    height: 100vh;
-    background-image: url('../images/hero5.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    position: relative;
-   
-}
-#overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.215);
-    display: flex;
-    flex-direction: column;
-    /* text-align: center; */
-    justify-content: flex-start;
-    align-items: start;
-    display: grid;
-   grid-template-columns: 1fr;
-    
-}
-
-#overlay-txt{
-    color: white;
-    font-size: 40px;
-    font-weight: 700;
-    margin-left: 20px;
-}
-
-#app-letter{
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.13);
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-background-color: white;
-display: none;
-
-}
-#name {
-    margin-top: 40px;
-    font-size: 55px;
-    color: white;
-    font-weight: 700;
-    /* width: 80%; */
-    margin-left: 20px;
-}
-
-.email-font{
-    font-size: 12px;
-}
-
-
+/* hamburger menu */
 .toggle-a{
     border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -399,7 +293,6 @@ display: none;
 .toggle-a li{
     list-style: none;
     font-size: 16px;
-    /* font-weight: 500; */
 }
 
 .toggle-a a:hover{
@@ -413,13 +306,104 @@ display: none;
     justify-content: center;
     padding: 20px;
     gap: 20px;
-    
-    
 } 
 
 #collasped-menu:hover{
     cursor: pointer;
 }
+
+/* hero section */
+#hero-img{
+    height: 100vh;
+    background-image: url('../images/Design.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+   display: grid;
+   grid-template-columns: 1fr;
+}
+
+#herostatus-img{
+    height: 100vh;
+    background-image: url('../images/hero5.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+   
+}
+#overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.215);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    display: grid;
+   grid-template-columns: 1fr;
+    
+}
+
+#overlay-txt{
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+#overlay button{
+    background-color: transparent;
+    font-size: 20px;
+    border: 1px solid white;
+    margin-top: 30px;
+    font-weight: 700;
+    margin-left: 20px;
+    padding: 30px 40px;
+    
+}
+
+#overlay button:hover{
+    background-color: white;
+    color: firebrick;
+   
+}
+
+#overlay a{
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+/* application letter */
+.email-font{
+    font-size: 12px;
+}
+#app-letter{
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.13);
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+background-color: white;
+display: none;
+
+}
+#name {
+    margin-top: 40px;
+    font-size: 55px;
+    color: white;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+
+
+
 
 /* media queries */
 
