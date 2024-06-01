@@ -15,6 +15,8 @@ let applicantDetails = JSON.parse(
 );
 
 
+//applicant's name
+document.getElementById('name').innerText = `${applicantDetails.FirstName},`
 
 //approved letter template
 document.getElementById('applicantEmail').innerText = applicantDetails.Email
@@ -128,5 +130,15 @@ function showLetter(){
   document.getElementById('app-letter').style.display = 'block'
   document.getElementById('dot').style.color = 'black'
   document.getElementById('message').style.display = 'none'
-  document.getElementById('herostatus-img').style.display = 'none'
+  document.getElementById('hero-img').style.display = 'none'
 }
+
+
+function showNav(){
+  document.getElementById('links').classList.toggle('toggle-a')
+document.getElementById('links').firstElementChild.classList.toggle('flex')
+document.getElementById('links').firstElementChild.classList.toggle('toggle-list')
+document.getElementById('links').classList.toggle('links')
+}
+
+document.getElementById('collasped-menu').addEventListener('click', showNav)

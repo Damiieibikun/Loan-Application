@@ -9,15 +9,21 @@
 
   <body id="main-status">
     <nav>
-      <a href="Loan-Application.html"><img src="images/logo2.png" alt="" id="logo-img" /></a>
-      <div id="links">
+      <a href="index.html"><img src="images/logo2.png" alt="" id="logo-img" /></a>
+      <div id="links" class="links">
         <ul class="flex">
-          <a href="index.html"><li>Home</li></a>
+          <a href="index.html"><li>Apply for Loan</li></a>
           <a href="Application-status.html"><li>Check Application Status</li></a>
-          <a href="Loan-Application.html"><li>Apply for Loan</li></a>
           <a href="#"><li>Learn More</li></a>
         </ul>
       </div>
+      <!-- <div id="linksa">
+        <ul>
+          <a href="index.html"><li>Apply for Loan</li></a>
+          <a href="Application-status.html"><li>Check Application Status</li></a>
+          <a href="#"><li>Learn More</li></a>
+        </ul>
+      </div> -->
       <div id="notification">
         <p id="currentdate"></p>
         <img src="images/hamburger.png" alt="" id="collasped-menu">
@@ -28,9 +34,18 @@
         </div>
       </div>
     </nav>
-    <div id="herostatus-img">
-            <!-- <p>QuantumLeap Loans Fast and Easy!</p>         -->
-    </div>
+    <div id="hero-img">
+      <div id="overlay">
+        <p id="name"></p>
+          <p id="overlay-txt">Thank you for choosing <br>
+            QuantumLeap Loans <br>Fast and Easy!</p>
+          <div class = "flex center align-center">
+            <button id="apply" onclick="showLetter()">View your Status</button>
+          </div>
+       
+      </div>
+      
+  </div>
     <div id="app-letter">
         <span><b>mail from Quantum Leap</b></span>&nbsp;<span class="email-font">&lt;noreply@quantumleap.com&gt;</span>
         <br>
