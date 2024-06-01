@@ -269,7 +269,6 @@ color: white;
     width: 250px;
     top: 30px;
     right: 0;
-    display: none;
     background-color: rgba(243, 242, 242, 0.895);
     border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -282,6 +281,13 @@ color: white;
     
 }
 
+.display-msg{
+    display: block;
+}
+
+.hide-msg{
+    display: none;
+}
 #message:hover{
     cursor: pointer;
 }
@@ -374,7 +380,7 @@ display: none;
     right: 10px;
     top: 90px;
     z-index: 1;
-    background-color: white;
+    background-color: rgba(234, 234, 234, 0.829);
    
 } 
 

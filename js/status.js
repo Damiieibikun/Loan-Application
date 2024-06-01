@@ -2,25 +2,27 @@
 //Navigation
 let today = new Date().toDateString();
 document.getElementById("currentdate").innerText = today;
-let count = 0
+// let count = 0
 let message = document.getElementById("message")
 let notification_icon = document.getElementById("notification-num")
 function showMsg(event) {
   if(event.target!==notification_icon){
-    console.log('clicked outside')
-    message.style.display = "none"
+    message.classList.remove('display-msg')
+    message.classList.add('hide-msg')
   }
   else{
-    if(count%2==0){
+    message.classList.toggle('display-msg')
+    message.classList.toggle('hide-msg')
+    // if(count%2==0){
  
-      message.style.display = "block"
-     }
-     else{
-      message.style.display = "none"
-     }
+    //   message.style.display = "block"
+    //  }
+    //  else{
+    //   message.style.display = "none"
+    //  }
   }
  
- count++
+//  count++
  
 }
 
@@ -145,7 +147,7 @@ if (applicantDetails.FinalPoints < 30) {
 function showLetter(){
   document.getElementById('app-letter').style.display = 'block'
   document.getElementById('dot').style.color = 'black'
-  document.getElementById('message').style.display = 'none'
+  // document.getElementById('message').style.display = 'none'
   document.getElementById('hero-img').style.display = 'none'
 }
 
