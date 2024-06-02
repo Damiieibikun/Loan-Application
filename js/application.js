@@ -75,7 +75,6 @@ function checkEmptyFields() { // check empty fiels
         selectedDuration = true
     }
 
-    console.log('Credit duartion validated?: ' + selectedDuration)
     console.log('number of empty fields: ' + numEmptyFields)
 
     if (numEmptyFields === 0) {
@@ -199,11 +198,11 @@ let validLoan = false;
 
 function validateFields() { //validte values inputed
     const confirmedChecks = validBalance && validEmail && validLoan;
-    console.log('confirmedChecks: ' + confirmedChecks);
+    console.log('confirmed Number format and email format?: ' + confirmedChecks);
     return confirmedChecks
 }
 
-console.log('Initial balance check: ' + validBalance);
+
 
 balance.addEventListener('blur', function() {
     const numRegex = /^\s*(\d+(\.\d+)?)(\s*,\s*(\d+(\.\d+)?))*\s*$/;
@@ -211,7 +210,7 @@ balance.addEventListener('blur', function() {
     validBalance ?
         (document.getElementById('invalid-num').style.display = 'none', balance.classList.remove('empty-field'), balance.nextElementSibling.style.display = 'none') :
         (document.getElementById('invalid-num').style.display = 'block', balance.classList.add('empty-field'));
-    console.log('balance check inside event listener: ' + validBalance);
+
     validateFields();
 });
 
@@ -221,7 +220,7 @@ email.addEventListener('blur', function() {
     validEmail ?
         (document.getElementById('invalid-email').style.display = 'none', email.classList.remove('empty-field', email.nextElementSibling.style.display = 'none')) :
         (document.getElementById('invalid-email').style.display = 'block', email.classList.add('empty-field'));
-    console.log('email check inside event listener: ' + validEmail);
+
     validateFields();
 });
 
@@ -231,7 +230,6 @@ loan.addEventListener('blur', function() {
     validLoan ?
         (document.getElementById('invalid-loan').style.display = 'none', loan.classList.remove('empty-field'), loan.nextElementSibling.style.display = 'none') :
         (document.getElementById('invalid-loan').style.display = 'block', loan.classList.add('empty-field'));
-    console.log('loan check inside event listener: ' + validLoan);
     validateFields();
 });
 
