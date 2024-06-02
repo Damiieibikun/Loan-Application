@@ -10,12 +10,14 @@ let balance = document.getElementById("balance");
 
 let history = document.getElementById("history")
 
+// set max day to current date
 let lastDeposit = document.getElementById("last-deposit")
 lastDeposit.setAttribute('max', `${today}`)
 
 let lastLoan = document.getElementById("last-loan")
 lastLoan.setAttribute('max', `${today}`)
 
+//set min day to current date
 let loanRequest = document.getElementById("loanRequest")
 loanRequest.setAttribute('min', `${today}`)
 
@@ -23,7 +25,6 @@ let loanPayment = document.getElementById("loanRepayment")
 loanPayment.setAttribute('min', `${today}`)
 
 let account = document.getElementById("account")
-
 let email = document.getElementById("email");
 let loan = document.getElementById("loan-amt");
 let submit = document.getElementById("submit");
@@ -39,64 +40,66 @@ function capitalCase() {
             this.value.slice(1);
         this.value = properText
     }
-
 }
 
 applicantfName.addEventListener('input', capitalCase)
 applicantlName.addEventListener('input', capitalCase)
 
 
+function checkEmptyFields() { // check empty fiels
+    let numEmptyFields = 0
+    let noEmptyFields = false
+    let selectedDuration = false
+
+    for (var input of inputs) {
+
+        if (input.value === '') {
+            document.getElementById("required-msg").style.display = "block";
+            input.nextElementSibling.style.display = 'inline'
+            input.classList.add('empty-field')
+            numEmptyFields++
+        } else {
+            input.classList.remove('empty-field')
+            input.nextElementSibling.style.display = 'none'
+
+        }
+    }
+
+    if (selectDuration.value === '') {
+        selectDuration.nextElementSibling.style.display = 'inline'
+        selectDuration.classList.add('empty-field')
+
+    } else {
+        selectDuration.classList.remove('empty-field')
+        selectDuration.nextElementSibling.style.display = 'none'
+        selectedDuration = true
+    }
+
+    console.log('Credit duartion validated?: ' + selectedDuration)
+    console.log('number of empty fields: ' + numEmptyFields)
+
+    if (numEmptyFields === 0) {
+        noEmptyFields = true
+    }
+    console.log('No Empty fields?: ' + noEmptyFields)
+    console.log('final status: ' + (noEmptyFields && selectedDuration))
+
+    return (noEmptyFields && selectedDuration)
+}
 
 
 
-// //test
-// let validBalance = false
-// let validEmail = false
-// let validLoan = false
-// let confirmedChecks = false
-// for (var input of inputs) {
-//     if (input.id === 'balance') {
-//         input.addEventListener('blur', function() {
-//             const numRegex = /^\s*(\d+(\.\d+)?)(\s*,\s*(\d+(\.\d+)?))*\s*$/;
-//             validBalance = numRegex.test(input.value)
-//             validBalance ?
-//                 (document.getElementById('invalid-num').style.display = 'none', input.classList.remove('empty-field')) :
-//                 (document.getElementById('invalid-num').style.display = 'block', input.classList.add('empty-field'))
-//             console.log('valid balance: ' + validBalance)
-//         })
+function calculatePeriod(fromDate, toDate) { // calculate months
 
-
-//     } else if (input.id === 'email') {
-//         input.addEventListener('blur', function() {
-//             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-//             validEmail = emailRegex.test(input.value)
-//             validEmail ?
-//                 (document.getElementById('invalid-email').style.display = 'none', input.classList.remove('empty-field')) :
-//                 (document.getElementById('invalid-email').style.display = 'block', input.classList.add('empty-field'))
-//             console.log('valid email: ' + validEmail)
-//         })
-
-//     } else if (input.id === 'loan-amt') {
-//         input.addEventListener('blur', function() {
-//             const numRegex = /^\s*(\d+(\.\d+)?)(\s*,\s*(\d+(\.\d+)?))*\s*$/;
-//             validLoan = numRegex.test(input.value)
-//             validLoan ?
-//                 (document.getElementById('invalid-loan').style.display = 'none', input.classList.remove('empty-field')) :
-//                 (document.getElementById('invalid-loan').style.display = 'block', input.classList.add('empty-field'))
-//             console.log('valid loan: ' + validLoan)
-//         })
-
-//     }
-// }
-// console.log('balance validated?: ' + validBalance)
-// console.log('email validated?: ' + validEmail)
-// console.log('loan amount validated?: ' + validLoan)
-// confirmedChecks = validBalance && validEmail && validLoan
-// console.log('confirmedChecks: ' + confirmedChecks)
-//     //
-
-
-
+    let day = fromDate.getDate();
+    let month = fromDate.getMonth() + 1;
+    let year = fromDate.getFullYear();
+    let yearDiff = Math.abs((year - toDate.getFullYear()) * 12);
+    let monthDiff = Math.abs(month - (toDate.getMonth() + 1));
+    let monthsPassed = yearDiff + monthDiff;
+    let daysPassed = day - toDate.getDate();
+    return [monthsPassed, daysPassed];
+}
 
 
 
@@ -175,7 +178,6 @@ function submitApplication() {
 
         applicantInfo.FinalPoints = pointsAwarded
 
-
         //write to local storage all inputted data
         localStorage.setItem('Loan-Application', JSON.stringify(applicantInfo))
             //redirect to page
@@ -189,118 +191,11 @@ function submitApplication() {
     }
 }
 
-function checkEmptyFields() {
-    let numEmptyFields = 0
-    let noEmptyFields = false
-    let selectedDuration = false
-
-    for (var input of inputs) {
-
-        if (input.value === '') {
-            document.getElementById("required-msg").style.display = "block";
-            input.nextElementSibling.style.display = 'inline'
-            input.classList.add('empty-field')
-            numEmptyFields++
-        } else {
-            input.classList.remove('empty-field')
-            input.nextElementSibling.style.display = 'none'
-
-        }
-    }
-
-    if (selectDuration.value === '') {
-        selectDuration.nextElementSibling.style.display = 'inline'
-        selectDuration.classList.add('empty-field')
-
-    } else {
-        selectDuration.classList.remove('empty-field')
-        selectDuration.nextElementSibling.style.display = 'none'
-        selectedDuration = true
-    }
-
-    console.log('Credit duartion validated?: ' + selectedDuration)
-    console.log('number of empty fields: ' + numEmptyFields)
-
-    if (numEmptyFields === 0) {
-        noEmptyFields = true
-    }
-    console.log('No Empty fields?: ' + noEmptyFields)
-    console.log('final status: ' + (noEmptyFields && selectedDuration))
-
-    return (noEmptyFields && selectedDuration)
-}
-
-function calculatePeriod(fromDate, toDate) { // calculate months
-
-    let day = fromDate.getDate();
-    let month = fromDate.getMonth() + 1;
-    let year = fromDate.getFullYear();
-    let yearDiff = Math.abs((year - toDate.getFullYear()) * 12);
-    let monthDiff = Math.abs(month - (toDate.getMonth() + 1));
-    let monthsPassed = yearDiff + monthDiff;
-    let daysPassed = day - toDate.getDate();
-    return [monthsPassed, daysPassed];
-}
-
-
-//add eventlistener to submit button
-submit.addEventListener('click', submitApplication)
-
-
-
-
-
-
-
-// //add event listenerts to check balance, email and amount entered
-// let validBalance = false
-// let validEmail = false
-// let validLoan = false
-// let confirmedChecks = false
-
-// console.log('balance check outside event listner ' +
-//     validBalance)
-// balance.addEventListener('blur', function() {
-//     const numRegex = /^\s*(\d+(\.\d+)?)(\s*,\s*(\d+(\.\d+)?))*\s*$/;
-//     validBalance = numRegex.test(balance.value)
-//     validBalance ?
-//         (document.getElementById('invalid-num').style.display = 'none', balance.classList.remove('empty-field')) :
-//         (document.getElementById('invalid-num').style.display = 'block', balance.classList.add('empty-field'))
-//     console.log('balance check inside event listner ' +
-//         validBalance)
-// })
-// console.log('balance check after event listner ' +
-//     validBalance)
-
-// email.addEventListener('blur', function() {
-//     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-//     validEmail = emailRegex.test(email.value)
-//     validEmail ?
-//         (document.getElementById('invalid-email').style.display = 'none', email.classList.remove('empty-field')) :
-//         (document.getElementById('invalid-email').style.display = 'block', email.classList.add('empty-field'))
-
-// })
-
-
-// loan.addEventListener('blur', function() {
-//     const numRegex = /^\s*(\d+(\.\d+)?)(\s*,\s*(\d+(\.\d+)?))*\s*$/;
-//     validLoan = numRegex.test(loan.value)
-//     validLoan ?
-//         (document.getElementById('invalid-loan').style.display = 'none', loan.classList.remove('empty-field')) :
-//         (document.getElementById('invalid-loan').style.display = 'block', loan.classList.add('empty-field'))
-
-// })
-// console.log('Balance validated?: ' + validBalance)
-// console.log('email validated?: ' + validEmail)
-// console.log('loan validated?: ' + validLoan)
-// confirmedChecks = validBalance && validEmail && validLoan
-
 
 // add event listeners to check balance, email, and amount entered
 let validBalance = false;
 let validEmail = false;
 let validLoan = false;
-// let otherFields = []
 
 function validateFields() { //validte values inputed
     const confirmedChecks = validBalance && validEmail && validLoan;
@@ -340,6 +235,57 @@ loan.addEventListener('blur', function() {
     validateFields();
 });
 
-console.log('Balance validated?: ' + validBalance);
-console.log('email validated?: ' + validEmail);
-console.log('loan validated?: ' + validLoan);
+// add event listeners for other fields
+
+applicantfName.addEventListener('blur', function() {
+    if (this.value !== '') {
+        this.classList.remove('empty-field')
+        this.nextElementSibling.style.display = 'none'
+    }
+})
+
+applicantlName.addEventListener('blur', function() {
+    if (this.value !== '') {
+        this.classList.remove('empty-field')
+        this.nextElementSibling.style.display = 'none'
+    }
+})
+
+history.addEventListener('blur', function() {
+    if (this.value !== '') {
+        this.classList.remove('empty-field')
+        this.nextElementSibling.style.display = 'none'
+    }
+})
+
+lastDeposit.addEventListener('blur', function() {
+    if (this.value !== '') {
+        this.classList.remove('empty-field')
+        this.nextElementSibling.style.display = 'none'
+    }
+})
+
+lastLoan.addEventListener('blur', function() {
+    if (this.value !== '') {
+        this.classList.remove('empty-field')
+        this.nextElementSibling.style.display = 'none'
+    }
+})
+
+loanRequest.addEventListener('blur', function() {
+    if (this.value !== '') {
+        this.classList.remove('empty-field')
+        this.nextElementSibling.style.display = 'none'
+    }
+})
+
+loanPayment.addEventListener('blur', function() {
+    if (this.value !== '') {
+        this.classList.remove('empty-field')
+        this.nextElementSibling.style.display = 'none'
+    }
+})
+
+
+//add eventlistener to submit button
+submit.addEventListener('click', submitApplication)
