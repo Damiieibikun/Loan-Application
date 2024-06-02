@@ -154,16 +154,16 @@ function checkFields() {
             if (input.id === 'balance') {
                 const numRegex = /^\s*(\d+(\.\d+)?)(\s*,\s*(\d+(\.\d+)?))*\s*$/;
                 validBalance = numRegex.test(input.value)
-                validBalance ? document.getElementById('invalid-num').style.display = 'none' : document.getElementById('invalid-num').style.display = 'block'
+                validBalance ? document.getElementById('invalid-num').style.display = 'none' : document.getElementById('invalid-num').style.display = 'block', input.classList.add('empty-field')
 
             } else if (input.id === 'email') {
                 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
                 validEmail = emailRegex.test(input.value)
-                validEmail ? document.getElementById('invalid-email').style.display = 'none' : document.getElementById('invalid-email').style.display = 'block'
+                validEmail ? document.getElementById('invalid-email').style.display = 'none' : document.getElementById('invalid-email').style.display = 'block', input.classList.add('empty-field')
             } else if (input.id === 'loan-amt') {
                 const numRegex = /^\s*(\d+(\.\d+)?)(\s*,\s*(\d+(\.\d+)?))*\s*$/;
                 validLoan = numRegex.test(input.value)
-                validLoan ? document.getElementById('invalid-loan').style.display = 'none' : document.getElementById('invalid-loan').style.display = 'block'
+                validLoan ? document.getElementById('invalid-loan').style.display = 'none' : document.getElementById('invalid-loan').style.display = 'block', input.classList.add('empty-field')
             }
 
         }
