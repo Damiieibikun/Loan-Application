@@ -52,7 +52,6 @@ document.addEventListener('click', showNav)
 
 
 //applicant's name and email
-// document.getElementById('name').innerText = `${applicantDetails.FirstName},`
 document.getElementById('applicantEmail').innerText = applicantDetails.Email
 
 
